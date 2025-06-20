@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Launching Website</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .launch-container {
+      text-align: center;
+      color: white;
+    }
+
+    .launch-btn {
+      padding: 15px 40px;
+      font-size: 20px;
+      background-color: #00c9a7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .launch-btn:hover {
+      background-color: #00b28f;
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    .loading-spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #00c9a7;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="launch-container" id="launcher">
+    <img src="assets/img/logo/Launching Logo.png" alt="" srcset="" width="200" height="100">
+    <h1>YORO TECHNOLOGIES</h1>
+    <h1>Welcome!</h1>
+    <p>Click the button below to launch the website.</p>
+    <button class="launch-btn" onclick="launchWebsite()">Launch Website</button>
+    <div class="loading-spinner" id="spinner"></div>
+  </div>
+
+  <script>
+    function launchWebsite() {
+      const launcher = document.getElementById('launcher');
+      const spinner = document.getElementById('spinner');
+
+      spinner.style.display = 'block';
+      launcher.classList.add('fade-out');
+
+      setTimeout(() => {
+        // Change the URL to your real website
+        window.location.href = "http://yorotechnologies.com/";
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
